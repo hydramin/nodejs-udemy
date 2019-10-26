@@ -1,0 +1,45 @@
+body {
+    margin: 1rem;   
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.header {
+    width: 100%;
+    background-color: rgba(63, 51, 129, 0.151);
+    position: fixed;
+    top: 10px;   
+}
+
+.navbar {
+    padding: 3px;
+}
+
+.navbar-item-list {
+    list-style-type: none;
+    font-size: 2em;
+    font-weight: 200;
+}
+
+.navbar-item {
+    float : left;
+    padding-right: 20px;
+}
+
+.navbar-item a {
+    text-decoration: none;
+    /* color: black; */
+}
+
+.navbar-item a:hover,
+.navbar-item a:active {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    width: 90%;
+    max-width: 90%;
+    margin-top: 1rem;
+    position: absolute;
+    top: 50px;
+}
