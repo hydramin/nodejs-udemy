@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Person</title>
+</head>
+
+<body>
+    <div class="jumbotron" >
+        <h1 class="h1" style="text-align: center;">Customer Registry Site</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-3">
+                <form class="form" action="/insert" method="post">
+                    <div class="form-group">
+                        <label for="name"></label> <br>
+                        <input class="form-control" type="text" name="name" id="name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="height"></label> <br>
+                        <input class="form-control" type="text" name="height" id="height" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+<br><hr><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-2">
+                <h2 class="h2">Search the database!</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 col-md-6 offset-md-2">
+                <form action="/search" method="get">
+                    <div class="form-group">
+                        <input type="text" placeholder="search by name" name="byName" id="byName" class="form-control">
+                        <br>
+                        <button class="btn btn-primary" type="submit">Search</button>
+                        <br><br>                        
+                        <button class="btn btn-primary" type="submit" name="all" value="asdf">Fetch All</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
