@@ -15,7 +15,7 @@ app.use('/admin',adminRoute); // can add products
 app.use('/shop',shopRoute); // displays products set for purchase
 
 app.set("view engine", "pug");
-app.set("views","pages/pug");
+app.set("views","views/pug");
 
 
 app.use((req, res, next) => {

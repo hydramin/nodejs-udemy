@@ -1,0 +1,25 @@
+<main>
+    <h1>Please select products</h1>
+    <hr>
+    
+    <form class="form" action="{{#if path}}/admin/add-product{{else}}/admin/product/modify{{/if}}" method="post">
+        {{#unless path}}<input type="hidden" name="id" value="{{products.id}}">{{/unless}}
+        
+        
+        <label class="form-label" for="name">Product Name</label>
+        <input class="form-input" placeholder="Product name" type="text" name="product_name" value="{{#unless path}}{{products.product_name}}{{/unless}}" ><br><br>
+
+        <label class="form-label">Price</label>
+        <input class="form-input" placeholder="Price" type="text" name="price" {{#unless path}}value="{{products.price}}"{{/unless}}><br><br>
+        
+        <label class="form-label">Description</label>
+        <input class="form-input" placeholder="Description" type="text" name="description" {{#unless path}}value="{{products.description}}"{{/unless}}><br><br>
+
+        <label class="form-label">Image</label>
+        <input class="form-input" placeholder="Image URL" type="text" name="picture" {{#unless path}}value="{{products.picture}}"{{/unless}}><br><br>
+
+        <button type="submit">Submit</button>        
+
+    </form>
+    <hr>
+</main>

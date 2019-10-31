@@ -1,0 +1,24 @@
+extends layouts/main.pug     
+
+block content
+    main
+        .container
+            .row
+                .col-md-6.offset-md-3
+                    h3.h3 Please Add Products Below
+                    hr
+                    - var isDisplay = path === "/admin/add-product";
+                    form(action=(isDisplay? "/admin/add-product" : "/admin/product/modify/"+product.id), method="post")
+                        .form-group
+                            label.font-weight-bold Product Name
+                            input(type="text", name="product_name", placeholder="Procuct Name", value=(isDisplay? "" :  product.product_name)).form-control
+                        .form-group
+                            label.font-weight-bold Price
+                            input(type="text", name="price", placeholder="Price", value=(isDisplay? "" : product.price)).form-control
+                        .form-group
+                            label.font-weight-bold Description
+                            textarea(type="text", name="description", placeholder="Description").form-control= (isDisplay? "" : product.description)
+                        .form-group
+                            label.font-weight-bold Product Image Link
+                            input(type="text", name="picture", placeholder="Picture", value=(isDisplay? "" : product.picture)).form-control
+                        button(type="submit").btn.btn-primary!= (isDisplay? "Add Product" : "Modify Product")

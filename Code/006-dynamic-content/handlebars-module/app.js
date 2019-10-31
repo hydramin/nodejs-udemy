@@ -4,18 +4,19 @@ const adminRoute = require('./routes/admin').Router;
 const shopRoute = require('./routes/shop');
 const rootDir = require('./util/path');
 const path = require('path');
-const db = require('./database/db');
+const handlebars = require('express-handlebars');
 
 const app = express();
 
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(express.static(path.join(rootDir, "public")))
+app.use(express.static(path.join(rootDir, "public")));
 
-app.use('/admin',adminRoute); // can add products
-app.use('/shop',shopRoute); // displays products set for purchase
+app.engine('handlebars', handlebars());
+app.set('view engine','handlebars');
+app.set('views', 'pages');
 
-app.set("view engine", "pug");
-app.set("views","pages/pug");
+app.use('/admin',adminRoute);
+app.use('/shop',shopRoute);
 
 
 app.use((req, res, next) => {

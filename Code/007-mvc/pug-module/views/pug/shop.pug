@@ -1,0 +1,17 @@
+extends layouts/main.pug
+
+block content
+    each product in products
+        article
+            .card
+                header.card-name
+                    p.card-name-text #{product.product_name}
+                    .card-image
+                        img(src= product.picture, alt= product.product_name)
+                    .card-desc  
+                        p #{product.price}
+                        blockquote.card-desc-text #{product.description} ...
+                    .card-action
+                        form(action="/shop/cart", method="post")
+                            input(type="hidden", name="pid", value=product.id)
+                            button#add-to-cart Add to Cart

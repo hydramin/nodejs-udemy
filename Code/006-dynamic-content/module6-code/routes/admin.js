@@ -3,47 +3,46 @@ const fs = require('fs');
 const util = require('util');
 const path = require('path');
 const rootDir = require('../util/path');
+const db = require('../database/db');
 
 const router = express.Router();
 
-let products = []
-
 //adds products to the db
-router.post("/product", (req, res, next)=> {        
+router.post("/add-product", (req, res, next)=> {        
     
-    let data = req.body;
-    products.push(data);
-    console.log(products, data,"__--__--__--");
- 
-    const filePath = path.join(rootDir,'pages','displayProduct.html');    
+    //body = {product_name, price, picture}
+    let data = req.body;  
+    // add to product to db
+    console.log(data, "<-- data of product");
     
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.sendFile(filePath, (err)=>{
-        if (err) {
-            console.log(err);            
-        } else {
-            console.log("file sent");
-        }
-    })
+    let query = `INSERT INTO products(product_name, price, picture) 
+                VALUES(?, ?, ?)`;
+    
+    db.execute(query, [data.product_name, data.price, data.picture])
+        .then((result) => {
+            console.log(result);
+        })
+        .catch((err) => {
+            if(err) throw err;
+        })
+    res.render("addProduct", {title: 'Add Product', path: "/admin/add-product"});
 })
 
-router.get("/product/data", (req, res, next) => {
-    console.log("<><><><><><>");    
-    res.status(200).json(products);
-})
-
-//home page
+//product adding form page
 router.get("/add-product", (req, res, next)=> {
-    let page = "";
-    res.setHeader("Content-Type", "text/html");
-    fs.readFile("./pages/addProduct.html", (err, data)=> {
-        if (err) {
-            throw new Error(err.message);
-        }
-        page = data.toString();        
-        res.send(page);        
-    })
+    res.render('addProduct', {title: 'Add Product', path: "/admin/add-product"});
+})
+
+// display the prodcuts in a table
+router.get("/product/data", (req, res, next) => {       
+    // fetch the products from the database
+    db.query('SELECT * FROM products')
+        .then((result) => {
+            console.log(result, "<== display product result data");            
+            res.render('displayProduct', {products: result[0], path: "/admin/product/data"});
+        })
+
+    
 })
 
 exports.Router = router;

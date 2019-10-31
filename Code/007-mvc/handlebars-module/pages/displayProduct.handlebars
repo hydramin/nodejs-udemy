@@ -1,0 +1,29 @@
+<main>
+    <h1><u>LIST OF PRODUCTS</u></h1>
+    <br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>PRODUCT NAME</th>
+                <th>PRICE</th>
+                <th>DESCRIPTION</th>
+                <th>IMAGE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+                <tr>
+                    <td>{{this.id}}</td>
+                    <td>{{this.product_name}}</td>
+                    <td>{{this.price}}</td>
+                    <td>{{this.description}}</td>
+                    <td>{{this.picture}}</td>                        
+                    <td><a href="/admin/product/modify?id={{this.id}}">Modify</a></td>
+                </tr>
+
+            {{/each}}
+        </tbody>
+    </table>
+</main>    

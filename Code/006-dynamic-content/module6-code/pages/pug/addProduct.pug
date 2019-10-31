@@ -1,0 +1,20 @@
+extends layouts/main.pug     
+
+block content
+    main
+        .container
+            .row
+                .col-md-6.offset-md-3
+                    h3.h3 Please Add Products Below
+                    hr
+                    form(action="/admin/add-product", method="post")
+                        .form-group
+                            label.font-weight-bold Product Name
+                            input(type="text", name="product_name", placeholder="Procuct Name").form-control
+                        .form-group
+                            label.font-weight-bold Price
+                            input(type="text", name="price", placeholder="Price").form-control
+                        .form-group
+                            label.font-weight-bold Product Image Link
+                            input(type="text", name="picture", placeholder="Picture").form-control
+                        button(type="submit").btn.btn-primary Add Product

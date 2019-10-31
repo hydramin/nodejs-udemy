@@ -1,0 +1,16 @@
+extends layouts/main.pug
+
+block content   
+    br
+    .container
+        .row
+            each product in products
+                .col-md-3
+                    - var imgSrc = product.picture
+                    - var prodName = product.product_name
+                    - var prodPrice = product.price
+                    div(style="width: 12rem").card
+                        img(src= imgSrc, alt= prodName).card-img-top
+                        .card-body
+                            p(style="size: 10").card-text #{prodName} -- price: #{prodPrice}
+                            

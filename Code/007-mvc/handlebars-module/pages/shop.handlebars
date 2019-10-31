@@ -1,0 +1,21 @@
+
+
+    {{#each products}}
+        <article>        
+            <div class="card">
+                <header class="card-name">
+                    <p class="card-name-text"> {{this.product_name}}</p>
+                </header>
+                <div class="card-image">
+                    <img src="{{this.picture}}" alt="{{this.product_name}}"/>
+                </div>
+                <div class="card-desc">
+                    <p>${{this.price}}.00</p>
+                    <blockquote class="card-desc-text"> {{this.description}}...</blockquote>
+                </div>
+                <div class="card-action">
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </article>
+    {{/each}}

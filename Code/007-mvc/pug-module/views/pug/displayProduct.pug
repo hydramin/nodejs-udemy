@@ -1,0 +1,27 @@
+extends layouts/main.pug
+
+block content
+    .container
+        .row
+            .col-md-10.col-md-1
+                h2.h2 LIST OF ALL PRODUCTS
+                table.table.table-dark
+                    thead
+                        tr
+                            th ID
+                            th NAME
+                            th PRICE
+                            th DESCRIPTION
+                            th PICTURE
+                    tbody
+                        each product in products
+                            tr
+                                td #{product.id}
+                                td #{product.product_name}
+                                td #{product.price}
+                                td #{product.description}
+                                td #{product.picture}
+                                td 
+                                    a(href="/admin/product/modify/"+ product.id, style="color: green; cursor: pointer; font-weight: bold") Modify
+                                td                                    
+                                    a(href="/admin/product/delete/" + product.id, style="color: red; cursor: pointer; font-weight: bold") Delete

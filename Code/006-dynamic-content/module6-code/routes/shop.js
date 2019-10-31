@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const db = require('../database/db');
 
 router.get('/', (req, res, next) => {
-    res.send('<h1> This is the shop </h1><br>\
-              <a href="/admin/add-product">Add product</a>');
+    db.query('SELECT * FROM products')
+        .then((result) => {
+            console.log(result, "<== display product result data");            
+            res.render('shop', {products: result[0], path: "/shop"});
+        })
 })
 
 module.exports = router;

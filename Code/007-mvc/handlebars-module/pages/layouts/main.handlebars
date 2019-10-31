@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>    
+    <link rel="stylesheet" href="/css/add-product.css"/>
+    <link rel="stylesheet" href="/css/product-form.css"/>
+    <link rel="stylesheet" href="/css/shop.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <ul class="navbar-item-list">
+                <li class="navbar-item"><a class="{{#if addProductPage}}active{{/if}}" href="/admin/add-product">ADD-PRODUCT</a></li>
+                <li class="navbar-item"><a class="{{#if shopPage}}active{{/if}}" href="/shop">SHOP</a></li>
+                <li class="navbar-item"><a class="{{#if displayProductPage}}active{{/if}}" href="/admin/product/data">DISPLAY-PRODUCTS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {{{ body }}}
+
+</body>
+</html>
