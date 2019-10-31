@@ -16,6 +16,8 @@ module.exports.getAddProductPageController = (req, res, next)=> {
 
 module.exports.displayAllProductsController = (req, res, next) => {       
     dbUtil.fetchAllProducts(products => {
+        console.log(products);
+        
         res.render('displayProduct', {products: products, path: "/admin/product/data", title: 'Products'});
     })
 }
