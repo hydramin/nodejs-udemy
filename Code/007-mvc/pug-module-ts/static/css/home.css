@@ -1,0 +1,26 @@
+a {
+    text-decoration: none;    
+}
+
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;    
+}
+
+li {
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+a:hover {
+    color: red;
+}

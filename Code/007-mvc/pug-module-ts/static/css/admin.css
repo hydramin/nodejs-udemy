@@ -1,0 +1,17 @@
+h1 {
+    color: red;
+}
+
+div {
+    border: 1px solid black;
+    margin: auto    
+}
+
+.det-body {
+    margin-bottom: 4px;
+}
+
+.det {
+    padding: 0;
+    margin: 0;
+}

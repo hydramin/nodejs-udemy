@@ -1,9 +1,10 @@
 const express = require('express');
+const path = require('path');
 const bodyParser = require('body-parser');
+
 const adminRoute = require('./routes/admin').Router;
 const shopRoute = require('./routes/shop');
 const rootDir = require('./util/path');
-const path = require('path');
 const db = require('./database/db');
 
 const app = express();

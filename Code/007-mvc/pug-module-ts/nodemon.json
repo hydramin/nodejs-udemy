@@ -1,0 +1,12 @@
+{
+    "watch": ["src/"], 
+    "ext": "ts",
+    "ignore": ["*.test.ts", "*.pug", "*.js", "*.html"],
+    "delay": "2000",
+    "execMap": {
+      "ts": "tsc"
+    },
+    "events" : {
+      "restart": "tsc"
+    }
+  }
